@@ -1,5 +1,10 @@
 class Post < ApplicationRecord
-  belongs_to :author, class_name: 'User'
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :comment_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :like_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+
+
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_many :likes
   has_many :comments
 
