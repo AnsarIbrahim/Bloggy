@@ -182,7 +182,7 @@ it will run the all the unit test of these project
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/HtetWaiYan7191/issues).
+Feel free to check the [issues page](https://github.com/AnsarIbrahim/Bloggy/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
