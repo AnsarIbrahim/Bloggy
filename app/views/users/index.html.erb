@@ -1,1 +1,7 @@
-<h1>Welcome to Bloggy</h1>
+<h1 class="mt-5 font-semibold">Welcome to Bloggy</h1>
+
+<div class="p-5 flex items-center justify-center flex-col w-full h-fit">
+  <ul class="grid gap-10">
+    <%= render partial: 'partials/user', collection: @user_lists %>
+  </ul>
+</div>

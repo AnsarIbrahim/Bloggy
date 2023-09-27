@@ -40,7 +40,7 @@ RSpec.describe PostsController, type: :request do
       user = User.create(name: 'Test User')
       post = user.posts.create(title: 'Test Post', text: 'Test Content') # Ensure 'content' attribute is correct
       get "/users/#{user.id}/posts/#{post.id}"
-      expect(response.body).to include('This is shown what posts haven')
+      expect(response.body).to include('Details of Posts')
     end
   end
 end

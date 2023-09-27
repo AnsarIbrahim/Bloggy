@@ -1,1 +1,54 @@
-<h1>Hello this is what to show</h1>
+<h1 class="mt-5 font-bold">User Details</h1>
+
+<div class="mt-3">
+  <div class="">
+    <li
+      class="flex justify-around w-full gap-x-52 items-center border p-5 hover:border-blue-500"
+    >
+      <div>
+        <% if @user_lists.photo.present? %>
+        <img
+          src="<%= @user_lists.photo %>"
+          alt="Blog Image"
+          width="100px"
+          height="100px"
+        />
+        <% else %>
+        <p>No photo available</p>
+        <% end %>
+      </div>
+      <div>
+        <p><%= @user_lists.name %></p>
+        <p>Number of Posts: <%= @user_lists.post_counter %></p>
+      </div>
+    </li>
+  </div>
+
+  <div class="mt-4 border hover:border-blue-500 p-5">
+    <p>Bio</p>
+    <p class="py-5"><%= @user_lists.bio %></p>
+  </div>
+
+  <% @user_lists.posts.each do |post| %>
+  <div class="mt-4 border hover:border-blue-500 p-5">
+    <ul>
+      <li>
+        <p><%= post.title %></p>
+        <p class="py-5"><%= post.text %></p>
+      </li>
+    </ul>
+    <div class="flex justify-end gap-x-2">
+      <p>Comments: <%= post.comment_counter %>,</p>
+      <p>Likes: <%= post.like_counter %></p>
+    </div>
+  </div>
+  <% end %>
+  <div class="flex items-center justify-center mt-5">
+    <div
+      class="border border-slate-300 hover:border-indigo-500 cursor-pointer p-2 rounded-md"
+    >
+      <%= link_to "See all posts", user_posts_path(user_id: @user_lists.id),
+      class: "all-post" %>
+    </div>
+  </div>
+</div>
