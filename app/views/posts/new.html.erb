@@ -1,0 +1,18 @@
+<h1 class="mt-3 font-bold">Add a Post</h1>
+
+<%= form_with(model: [@user, @post], url: user_posts_path(@user)) do |form| %>
+  <div class="mb-4">
+    <%= form.label :title, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :text, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :text, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" %>
+  </div>
+<% end %>
+

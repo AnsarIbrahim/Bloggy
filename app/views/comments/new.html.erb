@@ -1,0 +1,12 @@
+<h1 class="font-bold mt-3">Add a new Comment</h1>
+
+<%= form_with model: @comment, url: user_post_comments_path do |form| %>
+<div class="mt-3 flex items-center justify-center flex-col">
+<p>
+  <%= form.label :text %><br />
+  <%= form.text_area :text, cols: 30, rows:1 %>
+</p>
+<p class="mt-2 border border-slate-300 hover:border-indigo-500 px-3">
+  <%= form.submit "Submit", class: "cursor-pointer" %></p>
+</div>
+<% end %>
