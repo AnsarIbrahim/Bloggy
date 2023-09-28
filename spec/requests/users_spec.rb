@@ -37,7 +37,7 @@ RSpec.describe 'Users', type: :request do
     it 'includes correct placeholder text in the response body for show' do
       user = User.create(name: 'Test User')
       get user_path(user)
-      expect(response.body).to include('Hello this is what to show')
+      expect(response.body).to include('User Details')
     end
   end
 end

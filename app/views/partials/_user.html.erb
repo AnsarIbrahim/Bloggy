@@ -1,0 +1,20 @@
+<%= link_to user do %>
+<li class="flex justify-around w-full gap-x-52 items-center border p-5 hover:border-blue-500">
+  <div>
+    <% if user.photo.present? %>
+    <img
+      src="<%= user.photo %>"
+      alt="Blog Image"
+      width="100px"
+      height="100px"
+    />
+    <% else %>
+    <p>No photo available</p>
+    <% end %>
+  </div>
+  <div>
+    <p><%= user.name %></p>
+    <p>Number of Posts: <%= user.post_counter %></p>
+  </div>
+</li>
+<% end %>

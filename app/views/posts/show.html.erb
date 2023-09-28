@@ -1,1 +1,24 @@
-<h1>This is shown what posts haven</h1>
+<h1>Details of Posts</h1>
+
+<div class="mt-4 border hover:border-blue-500 p-5">
+  <div class="flex gap-x-28">
+    <div class="">
+      <p><%= @post.title %> By <%= @post.author.name %></p>
+    </div>
+    <div class="flex justify-end gap-x-2">
+      <p>Comments: <%= @post.comment_counter %>,</p>
+      <p>Likes: <%= @post.like_counter %></p>
+    </div>
+  </div>
+  <div class="mt-4">
+    <p class="py-5"><%= @post.text %></p>
+  </div>
+  <div class="mt-4 border hover:border-blue-500 p-5">
+    <p class="underline">Comments Lists</p>
+    <% @post.recent_comments.each do |comment| %>
+    <div class="flex flex-col mt-2">
+      <span><%= comment.user.name %> : <%= comment.text %></span>
+    </div>
+    <% end %>
+  </div>
+</div>
