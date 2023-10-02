@@ -33,7 +33,7 @@
   <div class="mt-4 border hover:border-blue-500 p-5">
     <ul>
       <li>
-        <p><%= post.title %></p>
+        <p><%= link_to post.title, user_post_path(post.author.id, post) %></p>
         <p class="py-5"><%= post.text %></p>
       </li>
     </ul>
