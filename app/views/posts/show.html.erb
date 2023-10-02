@@ -1,9 +1,9 @@
-<h1>Details of Posts</h1>
+<h1 class="font-semibold">Details of Posts</h1>
 
 <div class="mt-4 border hover:border-blue-500 p-5">
   <div class="flex gap-x-28">
     <div class="">
-      <p><%= @post.title %> By <%= @post.author.name %></p>
+      <p><%= link_to @post.title, user_post_path(@post.author.id, @post) %> By <%= @post.author.name %></p>
     </div>
     <div class="flex justify-end gap-x-2">
       <p>Comments: <%= @post.comment_counter %>,</p>
