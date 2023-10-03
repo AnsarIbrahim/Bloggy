@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
   validates :name, presence: true, length: { maximum: 50 }
   validates :post_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
