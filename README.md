@@ -165,6 +165,12 @@ it will run the all the unit test of these project
 - [LinkedIn](https://linkedin.com/in/ansar-ibrahim/)
 - [Twitter](https://twitter.com/ansaradheeb)
 
+👤 **Marvin Otieno**
+
+- [GitHub](https://github.com/marvin-nyalik)
+- [LinkedIn](https://linkedin.com/in/marvin-otieno/)
+- [Twitter](https://twitter.com/NyalikMarvin)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
