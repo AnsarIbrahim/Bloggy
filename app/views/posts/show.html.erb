@@ -22,7 +22,13 @@
     <div class="flex flex-col mt-2">
       <span><%= comment.user.name %> : <%= comment.text %></span>
     </div>
-
+    <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3 w-5">
+      <% if @ability.can? :delete, comment %>
+      <%= form_with model: @comment, url: user_post_comment_path(comment.post.author_id,comment.post.id,comment.id), method: :delete do |form| %>
+      <%= form.submit "Delete", class: "cursor-pointer" %>
+    <% end %>
+    <% end %>
+    </div>
     <% end %>
   </div>
 </div>
