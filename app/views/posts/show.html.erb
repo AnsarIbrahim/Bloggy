@@ -50,7 +50,7 @@
 
   <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3">
     <% if @ability.can? :delete, @post %>
-      <%= form_with model: @post, url: user_post_path(post_id: @post.id), method: :delete do |f| %>
+      <%= form_with model: @post, url: user_post_path(@post.author_id, @post.id), method: :delete do |f| %>
         <%= f.submit "Delete" , class: "cursor-pointer" %>
           <% end %>
             <% end %>
