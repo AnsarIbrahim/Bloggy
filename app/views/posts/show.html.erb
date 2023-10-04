@@ -5,55 +5,58 @@
     <div class="">
       <p>
         <%= link_to @post.title, user_post_path(@post.author.id, @post) %> By
-        <%= @post.author.name %>
+          <%= @post.author.name %>
       </p>
     </div>
     <div class="flex justify-end gap-x-2">
       <p>Comments: <%= @post.comments.count %>,</p>
-      <p>Likes: <%= @post.like_counter %></p>
+      <p>Likes: <%= @post.like_counter %>
+      </p>
     </div>
   </div>
   <div class="mt-4">
-    <p class="py-5"><%= @post.text %></p>
+    <p class="py-5">
+      <%= @post.text %>
+    </p>
   </div>
   <div class="mt-4 border hover:border-blue-500 p-5">
-    <p class="underline">Comments: <%= @post.comments.count %></p>
+    <p class="underline">Comments: <%= @post.comments.count %>
+    </p>
     <% @post.recent_comments.each do |comment| %>
-    <div class="flex flex-col mt-2">
-      <span><%= comment.user.name %> : <%= comment.text %></span>
-    </div>
-    <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3 w-5">
-      <% if @ability.can? :delete, comment %>
-      <%= form_with model: @comment, url: user_post_comment_path(comment.post.author_id,comment.post.id,comment.id), method: :delete do |form| %>
-      <%= form.submit "Delete", class: "cursor-pointer" %>
-    <% end %>
-    <% end %>
-    </div>
-    <% end %>
+      <div class="flex flex-col mt-2">
+        <span>
+          <%= comment.user.name %> : <%= comment.text %>
+        </span>
+      </div>
+      <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3 w-5">
+        <% if @ability.can? :delete, comment %>
+          <%= form_with model: @comment, url: user_post_comment_path(comment.post.author_id,comment.post.id,comment.id),
+            method: :delete do |form| %>
+            <%= form.submit "Delete" , class: "cursor-pointer" %>
+              <% end %>
+                <% end %>
+      </div>
+      <% end %>
   </div>
 </div>
 <div class="mt-3 flex justify-between gap-x-40 items-center">
-  <div
-    class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3"
-  >
-    <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do
-    |form| %>
-    <span><%= form.submit "Like", class: "cursor-pointer" %></span>
-    <% end %>
+  <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3">
+    <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |form| %>
+      <span>
+        <%= form.submit "Like" , class: "cursor-pointer" %>
+      </span>
+      <% end %>
   </div>
 
-  <div
-    class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3"
-  >
-    <% if @ability.can? :delete, @post %> <%= form_with model: @post, url:
-    user_post_path(post_id: @post.id), method: :delete do |f| %> <%= f.submit
-    "Delete", class: "cursor-pointer" %> <% end %> <% end %>
+  <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3">
+    <% if @ability.can? :delete, @post %>
+      <%= form_with model: @post, url: user_post_path(post_id: @post.id), method: :delete do |f| %>
+        <%= f.submit "Delete" , class: "cursor-pointer" %>
+          <% end %>
+            <% end %>
   </div>
 
-  <div
-    class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3 py-1"
-  >
-    <%= link_to "Add Comment", new_user_post_comment_path(user_id:
-    @post.author.id, post_id: @post.id) %>
+  <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer px-3 py-1">
+    <%= link_to "Add Comment" , new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id) %>
   </div>
 </div>
