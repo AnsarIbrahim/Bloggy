@@ -18,7 +18,7 @@
     </div>
     <div>
       <p class="font-semibold"><%= @user_lists.name %></p>
-      <p>Number of Posts: <%= @user_lists.post_counter %></p>
+      <p>Number of Posts: <%= @user_lists.posts.count %></p>
     </div>
   </li>
 
@@ -44,8 +44,7 @@
     </div>
     <% end %>
   </div>
-  <% end %> <% end %>
-  <%= will_paginate @posts %>
+  <% end %> <% end %> <%= will_paginate @posts %>
   <div class="flex items-center justify-center mt-5">
     <div
       class="border border-slate-300 hover:border-indigo-500 cursor-pointer p-2 rounded-md"
