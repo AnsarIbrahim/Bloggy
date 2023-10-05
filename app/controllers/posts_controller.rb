@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @posts = @user_lists.posts.paginate(page: params[:page], per_page: 3)
 
     respond_to do |format|
-      format.html { render "index" }
+      format.html { render 'index' }
       format.json { render json: @posts }
     end
   end

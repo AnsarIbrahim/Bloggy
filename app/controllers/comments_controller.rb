@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
-
   def index
     @post = Post.find(params[:post_id])
     @comments = @post.comments
     respond_to do |format|
-      format.html { render "index" }
+      format.html { render 'index' }
       format.json { render json: @comments }
     end
   end
@@ -22,12 +21,12 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to user_post_path(user_id: @post.author_id, id: @post.id) }
-        format.json { render json: { message: "Comment Add" }, status: :created }
+        format.json { render json: { message: 'Comment Add' }, status: :created }
       end
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: { message: "Comment Not Add" }, status: :unprocessable_entity }
+        format.json { render json: { message: 'Comment Not Add' }, status: :unprocessable_entity }
       end
     end
   end
