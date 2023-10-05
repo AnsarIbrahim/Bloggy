@@ -168,8 +168,8 @@ it will run the all the unit test of these project
 👤 **Marvin Otieno**
 
 - [GitHub](https://github.com/marvin-nyalik)
-- [LinkedIn](https://linkedin.com/in/marvin-otieno/)
-- [Twitter](https://twitter.com/NyalikMarvin)
+- [LinkedIn](https://www.linkedin.com/in/iMikeKhan)
+- [Twitter](https://twitter.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
