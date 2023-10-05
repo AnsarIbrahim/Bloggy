@@ -1,56 +1,58 @@
 <h1 class="mt-5 font-bold">Welcome to posts</h1>
 
 <div class="mt-3">
-  <li
-    class="flex justify-between w-full gap-x-52 items-center border p-5 hover:border-blue-500"
-  >
+  <li class="flex justify-between w-full gap-x-52 items-center border p-5 hover:border-blue-500">
     <div>
       <% if @user_lists.photo.present? %>
-      <img
-        src="<%= @user_lists.photo %>"
-        alt="Blog Image"
-        width="100px"
-        height="100px"
-      />
-      <% else %>
-      <p>No photo available</p>
-      <% end %>
+        <img src="<%= @user_lists.photo %>" alt="Blog Image" width="100px" height="100px" />
+        <% else %>
+          <p>No photo available</p>
+          <% end %>
     </div>
     <div>
-      <p class="font-semibold"><%= @user_lists.name %></p>
-      <p>Number of Posts: <%= @user_lists.post_counter %></p>
+      <p class="font-semibold">
+        <%= @user_lists.name %>
+      </p>
+      <p>Number of Posts: <%= @user_lists.posts.count %>
+      </p>
     </div>
   </li>
 
-  <% @posts.each do |post| %> <%= link_to user_post_path(user_id:
-  post.author.id, id: post.id) do %>
-  <div class="mt-4 border hover:border-blue-500 p-5">
-    <ul>
-      <li>
-        <p><%= post.title %></p>
-        <p class="py-5"><%= post.text %></p>
-      </li>
-    </ul>
-    <div class="flex justify-end gap-x-2">
-      <p>Comments: <%= post.comment_counter %>,</p>
-      <p>Likes: <%= post.like_counter %></p>
-    </div>
-  </div>
-  <div class="mt-4 border hover:border-blue-500 p-5">
-    <p class="underline">Comments Lists</p>
-    <% post.recent_comments.each do |comment| %>
-    <div class="flex flex-col mt-2">
-      <span><%= comment.user.name %> : <%= comment.text %></span>
-    </div>
-    <% end %>
-  </div>
-  <% end %> <% end %>
-  <%= will_paginate @posts %>
-  <div class="flex items-center justify-center mt-5">
-    <div
-      class="border border-slate-300 hover:border-indigo-500 cursor-pointer p-2 rounded-md"
-    >
-      <%= link_to "Add Post", new_user_post_path(user_id: @current_user.id) %>
-    </div>
-  </div>
+  <% @posts.each do |post| %>
+    <%= link_to user_post_path(user_id: post.author.id, id: post.id) do %>
+      <div class="mt-4 border hover:border-blue-500 p-5">
+        <ul>
+          <li>
+            <p>
+              <%= post.title %>
+            </p>
+            <p class="py-5">
+              <%= post.text %>
+            </p>
+          </li>
+        </ul>
+        <div class="flex justify-end gap-x-2">
+          <p>Comments: <%= post.comment_counter %>,</p>
+          <p>Likes: <%= post.like_counter %>
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 border hover:border-blue-500 p-5">
+        <p class="underline">Comments Lists</p>
+        <% post.recent_comments.each do |comment| %>
+          <div class="flex flex-col mt-2">
+            <span>
+              <%= comment.user.name %> : <%= comment.text %>
+            </span>
+          </div>
+          <% end %>
+      </div>
+      <% end %>
+        <% end %>
+          <%= will_paginate @posts %>
+            <div class="flex items-center justify-center mt-5">
+              <div class="border border-slate-300 hover:border-indigo-500 cursor-pointer p-2 rounded-md">
+                <%= link_to "Add Post" , new_user_post_path(user_id: @current_user.id) %>
+              </div>
+            </div>
 </div>
