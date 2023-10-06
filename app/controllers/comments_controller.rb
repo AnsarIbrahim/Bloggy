@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comments = @post.comments
     respond_to do |format|
-      format.html { render 'index' }
       format.json { render json: @comments }
     end
   end

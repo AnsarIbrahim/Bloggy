@@ -80,3 +80,5 @@ gem 'devise', '~> 4.9'
 gem 'will_paginate', '~> 3.3'
 
 gem 'cancancan', '~> 3.5'
+
+gem 'rswag', '~> 2.10'
