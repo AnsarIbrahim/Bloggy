@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: Bloggy_production
-  username: Bloggy
-  password: <%= ENV["BLOGGY_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
