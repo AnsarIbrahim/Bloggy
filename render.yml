@@ -1,11 +1,11 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: Ansar-Database
+    databaseName: ansar_database
+    user: ansar_database_user
 
 services:
   - type: web
-    name: mysite
+    name: Bloggy
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
